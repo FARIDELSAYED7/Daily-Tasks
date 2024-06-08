@@ -1,4 +1,3 @@
-// In your main app file (e.g., main.dart)
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
