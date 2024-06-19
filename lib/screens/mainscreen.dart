@@ -62,27 +62,25 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 85,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 75),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Daily Tasks',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    IconButton(
-                        onPressed: navigateToAddTask,
-                        icon: Icon(
-                          Icons.add_circle_outlined,
-                          size: 28,
-                          color: Colors.white,
-                        ))
-                  ]),
-            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              SizedBox(
+                width: 45,
+              ),
+              Text(
+                'Daily Tasks',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
+              ),
+              IconButton(
+                  onPressed: navigateToAddTask,
+                  icon: Icon(
+                    Icons.add_circle_outlined,
+                    size: 28,
+                    color: Colors.white,
+                  ))
+            ]),
             Expanded(
               child: ListView.builder(
                 itemCount: taskProvider.tasks.length,
@@ -92,14 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     checkColor: Colors.white,
                     title: Text(
                       task.title,
-                      style: TextStyle(color: Colors.white,fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     value: task.isDone,
                     onChanged: (newValue) => taskProvider.toggleTask(index),
                     secondary: IconButton(
                       icon: Icon(
                         Icons.delete,
-                        color: Colors.white,                       
+                        color: Colors.white,
                       ),
                       onPressed: () => taskProvider.removeTask(index),
                     ),
